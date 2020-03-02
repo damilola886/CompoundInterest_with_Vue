@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> Compound interest </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            body{background-color:#607d8b;}
+            .wrapper {padding:20px; }
+            h1{text-align:center;font-size: 50px;font-style:normal;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+                Geneva, Verdana, sans-serif;}
+            h2{text-align: center;font-family:'Lucida Sans', 'Lucida Sans Regular', 
+            'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style: normal;}
+            .form {margin: 0 auto;width: 30%;border:2px solid #222; padding:30px; 
+                background-color:white;border-radius: 30px;margin-top: 40px; padding-top: 30px;
+                box-shadow: 10px 15px 15px #0d3142;}
+            .label{ font-size: large; margin: 0 30px; border-radius: 20px;}
+            
+    
+            .center{width:481px;padding:20px; margin: 0 auto;}
+            .row {font-size:25px;}
+            input{ width:70%;height:22%; 
+                font-size: 70%;}
+            button{
+                cursor: pointer;
+                margin-left: 45%;
+                width: 150px;
+                height: 50px;
+                font-size: 25px;
+                background-color:#222;
+                color: beige; 
+                border-radius: 10px;
+            }
+
+        
+            
+
+            </style>
+        
+    </head>
+    
+    <body>
+        <div id="app">
+        
+        <div class="wrapper">
+            <h1>Compound Interest Calculator</h1>
+            <h2>Enter the Values in the Boxes Provided</h2>
+
+            
+            <div class="form"> 
+            <div class="center">
+                
+                
+        <form>
+
+        
+        <div class="row">
+            <label>Principal</label>
+            <div class="input">
+        
+                <input placeholder=" Enter the Principal" v-model= "principal" type="number"><br>
+            </div>
+        
+         </div>
+
+        <div class="row">
+             <label>Rate</label>
+             <div class="input">
+                <input placeholder=" Enter the Rate" v-model="rate" type="number"><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <label>Time</label>
+            <div class="input">
+                <input placeholder="Enter the Time" v-model="time" type="number"><br>
+        </div> 
+        </div>
+        <div class="row">
+            <label>Number of Years</label>
+            <div class="input">
+                <input placeholder="Enter the Number" v-model="number" type="number"><br><br>
+            </div>
+        </div>
+                
+                <!--<button onclick=" compoundinterest(); return false; ">Calculate</button><br> -->
+
+            <span style="font-size:22px">The compound interest is &#8358 {{compoundInterest()}}</span>
+    
+        </form>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <script>
+        // function compoundinterest(){
+        //     let principal= document.getElementById("principal").value;
+        //     let rate= document.getElementById("rate").value;
+        //     let time= document.getElementById("time").value;
+        //     let number= document.getElementById("number").value;
+            
+
+        //     // principal = Number(principal);
+        //     // //rate= Number(rate);
+        //     // time = Number(time);
+        //     // number = Number(number);
+        //     rate=rate/100;
+
+
+
+
+        //     const n=number*time;
+        //     const r= 1 + rate/number;
+        //     let Compound = principal*(r**n);
+        //     Compound= Compound.toFixed(2);
+        //     document.getElementById("result").innerHTML= `<br> The compound interest is &#8358;${Compound}`;}
+
+        let app = new Vue ({
+            el: "#app",
+            data: {
+                principal: null,
+                rate: null,
+                time: null,
+                number: null,
+            },
+            methods: {
+                compoundInterest(){
+                    multiply = this.number * this.time;
+                    Ratedecimal = this.rate/100
+                    divide = Ratedecimal /this.number;
+                    r = 1 + divide;
+                    compound = this.principal*(r**multiply);
+                    compound = compound.toFixed(2);
+                    return compound;
+                }
+            }
+
+        })
+
+
+
+
+    </script>
+
+    </body>
+</html>
